@@ -1,7 +1,8 @@
-package br.com.zup.firebaselogin
+package br.com.zup.firebaselogin.ui.main.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.com.zup.firebaselogin.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
