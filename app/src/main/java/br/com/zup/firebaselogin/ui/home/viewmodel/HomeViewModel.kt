@@ -7,4 +7,6 @@ class HomeViewModel: ViewModel() {
     private val authRepository = AuthRepository()
 
     fun getUserEmail() = authRepository.getUserEmail()
+
+    fun logout() = authRepository.logout()
 }
