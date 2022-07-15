@@ -11,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.firebaselogin.R
 import br.com.zup.firebaselogin.databinding.FragmentRegisterBinding
 import br.com.zup.firebaselogin.domain.model.User
+import br.com.zup.firebaselogin.ui.main.view.MainActivity
 import br.com.zup.firebaselogin.ui.register.viewmodel.RegisterViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -32,6 +33,7 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as MainActivity).supportActionBar?.title = "Firebase App: Cadastro"
 
         binding.btnRegister.setOnClickListener {
             val user = getUserData()

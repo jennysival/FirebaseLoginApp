@@ -12,6 +12,7 @@ import br.com.zup.firebaselogin.R
 import br.com.zup.firebaselogin.databinding.FragmentLoginBinding
 import br.com.zup.firebaselogin.domain.model.User
 import br.com.zup.firebaselogin.ui.login.viewmodel.LoginViewModel
+import br.com.zup.firebaselogin.ui.main.view.MainActivity
 import com.google.android.material.snackbar.Snackbar
 
 class LoginFragment : Fragment() {
@@ -31,6 +32,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as MainActivity).supportActionBar?.title = "Firebase App: Login"
 
         binding.tvNewAccount.setOnClickListener {
             navigateToRegisterFragment()

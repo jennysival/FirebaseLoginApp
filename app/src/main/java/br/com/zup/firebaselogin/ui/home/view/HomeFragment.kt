@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.firebaselogin.R
 import br.com.zup.firebaselogin.databinding.FragmentHomeBinding
 import br.com.zup.firebaselogin.ui.home.viewmodel.HomeViewModel
+import br.com.zup.firebaselogin.ui.main.view.MainActivity
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -27,6 +28,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
+        (activity as MainActivity).supportActionBar?.title = "Firebase App: Home"
 
         showUserEmail()
 
