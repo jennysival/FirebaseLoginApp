@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.register.view.RegisterFragment">
 
-    <EditText
-        android:id="@+id/et_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:hint="@string/hint_digite_seu_nome"
-        android:inputType="text"
-        android:importantForAutofill="no"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_email"
@@ -28,7 +17,7 @@
         android:importantForAutofill="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_username" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_password"
