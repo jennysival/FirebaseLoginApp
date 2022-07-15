@@ -8,4 +8,6 @@
     <string name="hint_digite_sua_senha">Digite sua senha</string>
     <string name="btn_text_entrar">Entrar</string>
     <string name="text_criar_conta">Criar conta</string>
+    <string name="text_ola">Olá,</string>
+    <string name="text_sair">Sair</string>
 </resources>
