@@ -31,7 +31,11 @@ class LoginViewModel: ViewModel() {
 
     private fun login(user: User){
         try {
-            authRepository.login(user.email,user.password).addOnSuccessListener { _loginState.value = user }
+            authRepository.login(user.email,user.password)
+                .addOnSuccessListener { _loginState.value = user }
+                .addOnFailureListener { _errorState.value = "Erro no login" + it.message }
+        }catch (e: Exception){
+            _errorState.value = e.message
         }
     }
 
