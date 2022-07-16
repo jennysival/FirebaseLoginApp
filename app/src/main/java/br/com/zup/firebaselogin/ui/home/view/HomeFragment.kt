@@ -2,6 +2,7 @@ package br.com.zup.firebaselogin.ui.home.view
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
@@ -12,6 +13,7 @@ import br.com.zup.firebaselogin.ui.main.view.MainActivity
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+    private var messageList = mutableListOf<String>()
 
     private val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this)[HomeViewModel::class.java]
@@ -32,11 +34,45 @@ class HomeFragment : Fragment() {
 
         showUserEmail()
 
+        binding.btnSalvarMsg.setOnClickListener {
+            if(validateField()){
+                viewModel.saveUserMessage(getMessage())
+                clearField()
+            }
+        }
+
+        observer()
+
     }
 
     private fun showUserEmail(){
         val email = viewModel.getUserEmail()
         binding.tvEmail.text = email
+    }
+
+    private fun getMessage(): String{
+        val message = binding.etMsg.text.toString()
+        messageList.add(message)
+        return message
+    }
+
+    private fun validateField(): Boolean{
+        return if(binding.etMsg.text.isEmpty()){
+            binding.etMsg.error = "Escreva sua mensagem"
+            false
+        }else{
+            true
+        }
+    }
+
+    private fun clearField(){
+        binding.etMsg.text.clear()
+    }
+
+    private fun observer(){
+        viewModel.msgState.observe(this.viewLifecycleOwner){
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun navigateToLoginFragment(){

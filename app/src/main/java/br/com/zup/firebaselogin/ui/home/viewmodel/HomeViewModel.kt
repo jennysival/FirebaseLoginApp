@@ -11,9 +11,6 @@ class HomeViewModel: ViewModel() {
     private val authRepository = AuthRepository()
     private val messageRepository = MessageRepository()
 
-    private val _messageResponse = MutableLiveData<String>()
-    val messageResponse: LiveData<String> = _messageResponse
-
     private val _msgState = MutableLiveData<String>()
     val msgState: LiveData<String> = _msgState
 
