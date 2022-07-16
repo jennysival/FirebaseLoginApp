@@ -39,13 +39,13 @@ class HomeFragment : Fragment() {
         (activity as MainActivity).supportActionBar?.title = "Firebase App: Home"
 
         showUserEmail()
+        viewModel.getSavedMessagesList()
+        showRecycler()
 
         binding.btnSalvarMsg.setOnClickListener {
             if(validateField()){
                 viewModel.saveUserMessage(getMessage())
                 clearField()
-                viewModel.getSavedMessagesList()
-                showRecycler()
             }
         }
 
