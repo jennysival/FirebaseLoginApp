@@ -30,7 +30,12 @@ class MessageAdapter(
     }
 
     fun updateMessageList(newList: MutableList<String>){
-        messageList = newList
+        if (messageList.size == 0){
+            messageList = newList
+        }else{
+            messageList = mutableListOf()
+            messageList.addAll(newList)
+        }
         notifyDataSetChanged()
     }
 
