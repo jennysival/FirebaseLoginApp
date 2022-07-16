@@ -2,10 +2,12 @@ package br.com.zup.firebaselogin.ui.home.view
 
 import android.os.Bundle
 import android.view.*
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.zup.firebaselogin.R
 import br.com.zup.firebaselogin.databinding.FragmentHomeBinding
 import br.com.zup.firebaselogin.ui.home.viewmodel.HomeViewModel
@@ -17,6 +19,10 @@ class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this)[HomeViewModel::class.java]
+    }
+
+    private val messageAdapter: MessageAdapter by lazy {
+        MessageAdapter(arrayListOf())
     }
 
     override fun onCreateView(
@@ -38,6 +44,8 @@ class HomeFragment : Fragment() {
             if(validateField()){
                 viewModel.saveUserMessage(getMessage())
                 clearField()
+                viewModel.getSavedMessagesList()
+                showRecycler()
             }
         }
 
@@ -73,6 +81,15 @@ class HomeFragment : Fragment() {
         viewModel.msgState.observe(this.viewLifecycleOwner){
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
         }
+
+        viewModel.messageListState.observe(this.viewLifecycleOwner){
+            messageAdapter.updateMessageList(it.toMutableList())
+        }
+    }
+
+    private fun showRecycler(){
+        binding.rvMsg.adapter = messageAdapter
+        binding.rvMsg.layoutManager = LinearLayoutManager(context)
     }
 
     private fun navigateToLoginFragment(){
