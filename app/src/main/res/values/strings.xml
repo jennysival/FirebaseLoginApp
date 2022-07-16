@@ -10,4 +10,6 @@
     <string name="text_criar_conta">Criar conta</string>
     <string name="text_ola">Olá,</string>
     <string name="text_sair">Sair</string>
+    <string name="hint_digite_uma_mensagem">Digite uma mensagem</string>
+    <string name="texto_btn_salvar_mensagem">Salvar Mensagem</string>
 </resources>
