@@ -2,6 +2,7 @@ package br.com.zup.firebaselogin.ui.home.view
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
